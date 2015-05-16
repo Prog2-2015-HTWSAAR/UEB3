@@ -1,7 +1,6 @@
-// NOPE IN BEARBEITUNG!
 /**
 * compile: g++ -c -Wall -pedantic *.cpp
-* compile: g++ -o ueb01 *.o
+* compile: g++ -o ueb03 *.o
 * @file Artikeldialog.h
 * @Author Andreas Schreiner & Simon Bastian
 *
@@ -13,23 +12,31 @@
 #ifndef ARTIKELDIALOG_H_
 #define ARTIKELDIALOG_H_
 #include "Artikel.h"
+#include <iostream>
 class Artikeldialog {
 public:
 	Artikeldialog();
 	virtual ~Artikeldialog();
 	/**
+	 * @brief Ausgeben eines Artikels
+	 * @param artikel
+	 */
+	void ausgeben(const Artikel& artikel);
+	/**
 	 * @brief Test des Konstruktors mit zwei Argumenten
 	 * @param artikelNr
 	 * @param bezeichnung
+	 * @param artikelpreis
 	 */
-	void testeConstructor2(int artikelNr, string bezeichnung);
+	void testeConstructor1(int artikelNr, string bezeichnung, double artikelpreis);
 	/**
 	 * @brief Test des Konstruktors mit drei Argumenten
 	 * @param artikelNr
 	 * @param bezeichnung
+	 * @param artikelpreis
 	 * @param bestand
 	 */
-	void testeConstructor3(int artikelNr, string bezeichnung, int bestand);
+	void testeConstructor2(int artikelNr, string bezeichnung, double artikelpreis, int bestand);
 	/**
 	 * @brief Test der Zugangsbuchung eines Artikels
 	 * @param artikel
@@ -50,6 +57,16 @@ public:
 	 * @param artikel
 	 */
 	void testeSetBestand(Artikel artikel);
+	/**
+	 * @brief Test des Setzens des Preises eines Artikels
+	 * @param artikel
+	 */
+	void testeSetPreis(Artikel artikel);
+	/**
+	 * @brief Test der Aenderung eines Preises
+	 * @param artikel
+	 */
+	void testeAenderePreis(Artikel artikel);
 	/**
 	 * @brief Ausführung aller Tests
 	 */
