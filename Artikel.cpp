@@ -10,29 +10,25 @@
 * Artikel Funktionen
 *
 */
-#include <stdexcept>
+
 #include "Artikel.h"
 /**
 * @brief Konstruktor mit 2 Parameter(Artikelnummer. Bezeichnung)
 * @details Konstruktor zur Erzeugung eines Artikel Obj mit bestand=0
-* @param[in] artikelNr Artikelnummer des neuen Obj
-* @param[in] bezeichnung Bezeichnung des neuen Obj
+* @param[in] artikelNr muss vierstellig sein!
+* @param[in] bezeichnung darf kein leerer String sein!
 */
 Artikel::Artikel(int artikelNr, string bezeichnung){
-	try{
-		if (artikelNr / 1 <= 0) {
-			throw runtime_error("error_nan_or_negative");
-		}
-		else{
+	if (artikelNr < 1000  || artikelNr > 9999) {
+		throw "Die Artikelnummer muss eine 4-stellige positive Zahl sein!";
+	}
 
-			this->artikelNr = artikelNr;
-			this->bezeichnung = bezeichnung;
-			this->bestand = 0;
-		}
+	if (bezeichnung.empty()){
+		throw "Die Bezeichnung eines Artikels darf nicht leer sein!";
 	}
-	catch (exception e){
-		cerr << "NAN or Negative" << endl;
-	}
+	this->artikelNr = artikelNr;
+	this->bezeichnung = bezeichnung;
+	this->bestand = 0;
 }
 /**
 * @brief Konstruktor mit 3 Parameter(Artikelnummer. Bezeichnung, Bestand)
@@ -42,22 +38,21 @@ Artikel::Artikel(int artikelNr, string bezeichnung){
 * @param[in] bestand Lagerbestand
 */
 Artikel::Artikel(int artikelNr, string bezeichnung, int bestand){
-	try {
-		if (artikelNr / 1 <= 0 ) {
-			throw runtime_error("error_nan_or_negative");
-		}
-		else if (bestand / 1 <= 0) {
-			throw runtime_error("error_nan_or_negative");
-		}
-		else{
-			this->artikelNr = artikelNr;
-			this->bezeichnung = bezeichnung;
-			this->bestand = bestand;
-		}
+	if (artikelNr < 1000  || artikelNr > 9999) {
+		throw "Die Artikelnummer muss eine 4-stellige positive Zahl sein!";
 	}
-	catch (exception e){
-		cerr << "NAN or Negative" << endl;
+
+	if (bezeichnung.empty()){
+		throw "Die Bezeichnung eines Artikels darf nicht leer sein!";
 	}
+	if (bestand < 0){
+		throw "Der Bestand dar nie negativ sein!";
+	}
+	this->artikelNr = artikelNr;
+	this->bezeichnung = bezeichnung;
+	this->bestand = bestand;
+
+
 }
 
 
@@ -68,18 +63,10 @@ Artikel::Artikel(int artikelNr, string bezeichnung, int bestand){
 */
 
 void Artikel::bucheZugang(int menge){
-	try {
-		if (menge / 1 <= 0) {
-			throw runtime_error("error_nan_or_negative");
-		}
-		else{
-			bestand += menge;
-		}
+	if(menge < 0){
+		throw "Es duerfen nur positive Mengen gebucht werden!";
 	}
-	catch (exception e){
-		cerr << "NAN or Negative" << endl;
-	}
-
+	bestand += menge;
 }
 /**
 * @brief bucheAbgang
@@ -87,35 +74,22 @@ void Artikel::bucheZugang(int menge){
 * @param[in] menge anzahl des zu subtrahierenden Wertes
 */
 void Artikel::bucheAbgang(int menge){
-	try {
-		if (menge / 1 <= 0) {
-			throw runtime_error("error_nan_or_negative");
-		}
-		else{
-			bestand -= menge;
-		}
+	if(menge < 0){
+		throw "Es duerfen nur positive Mengen gebucht werden!";
 	}
-	catch (exception e){
-		cerr << "NAN or Negative" << endl;
-	}
+	bestand -= menge;
 }
 /**
-* @brief setBestand
+* @brief setBestand bei Inventur
 * @details Funktion zum setzen des Bestands
 * @param[in] menge anzahl des zu setzenden Wertes
 */
 void Artikel::setBestand(int neuBestand){
-	try {
-		if (neuBestand / 1 <= 0) {
-			throw runtime_error("error_nan_or_negative");
-		}
-		else{
-			bestand = neuBestand;
-		}
+	if (neuBestand < 0){
+		throw "Der Bestand dar nie negativ sein!";
 	}
-	catch (exception e){
-		cerr << "NAN or Negative" << endl;
-	}
+	bestand = neuBestand;
+
 }
 /**
 * @brief setBezeichnung
@@ -123,6 +97,9 @@ void Artikel::setBestand(int neuBestand){
 * @param[in] neuBezeichnung  Neue Bezeichnung
 */
 void Artikel::setBezeichnung(string neuBezeichnung){
+	if (neuBezeichnung.empty()){
+		throw "Die Bezeichnung eines Artikels darf nicht leer sein!";
+	}
 	bezeichnung = neuBezeichnung;
 }
 /**
