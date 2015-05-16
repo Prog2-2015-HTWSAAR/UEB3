@@ -295,12 +295,16 @@ void Artikeldialog::createArtikelComplete(){
 	int bestand = 0;
 	cout << "Artikel Erstellen" << endl << "Artikel Nr: ";
 	cin >> artikelNr;
+	cin.clear();
+	cin.ignore(10000, '\n');
 	cout << "Bezeichnung: ";
 	cin >> bezeichnung;
 	cout << "Preis: ";
 	cin >> artikelPreis;
 	cout << "Bestand: ";
 	cin >> bestand;
+	cin.clear();
+	cin.ignore(10000, '\n');
 	Artikel artikel(artikelNr, bezeichnung, bestand);
 	manuell(artikel);
 
@@ -315,6 +319,8 @@ void Artikeldialog::createArtikelTwoParam(){
 	int artikelPreis=0;
 	cout << "Artikel Erstellen" << endl << "Artikel Nr: ";
 	cin >> artikelNr;
+	cin.clear();
+	cin.ignore(10000, '\n');
 	cout << "Bezeichnung: ";
 	cin >> bezeichnung;
 	Artikel artikel(artikelNr, bezeichnung,artikelPreis);
