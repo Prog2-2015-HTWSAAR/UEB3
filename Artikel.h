@@ -1,3 +1,4 @@
+// NOPE IN BEARBEITUNG!
 /**
 * @file Artikel.h
 * @Author Andreas Schreiner & Simon Bastian
