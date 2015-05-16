@@ -1,10 +1,10 @@
 /**
 * compile: g++ -c -Wall -pedantic *.cpp
 * compile: g++ -o ueb01 *.o
-* @file ueb02.cpp
+* @file ueb03.cpp
 * @Author Andreas Schreiner & Simon Bastian
 *
-* @date 08.05.2015
+* @date 16.05.2015
 *
 * Main Funktion
 *
