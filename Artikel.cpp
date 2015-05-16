@@ -60,18 +60,18 @@ Artikel::Artikel(int artikelNr, string bezeichnung, double artikelPreis, int bes
 	this->artikelNr = artikelNr;
 	this->bezeichnung = bezeichnung;
 	this->bestand = bestand;
-	this->artikelPreis=artikelPreis; //TODO EINGABE?
+	this->artikelPreis=artikelPreis;
 }
 
 
 /**
 * @brief bucheZugang
 * @details Funktion zum erhoehen des Bestands
-* @param menge darf nicht negativ sein!
+* @param menge muss sein!
 */
 
 void Artikel::bucheZugang(int menge){
-	if(menge < 0){
+	if(menge <= 0){
 		throw "Es duerfen nur positive Mengen gebucht werden!";
 	}
 
@@ -80,10 +80,10 @@ void Artikel::bucheZugang(int menge){
 /**
 * @brief bucheAbgang
 * @details Funktion zum verringern des Bestands
-* @param menge darf nicht negativ sein!
+* @param menge muss positiv sein!
 */
 void Artikel::bucheAbgang(int menge){
-	if(menge < 0){
+	if(menge <= 0){
 		throw "Es duerfen nur positive Mengen gebucht werden!";
 	}
 	if (bestand - menge < 0){

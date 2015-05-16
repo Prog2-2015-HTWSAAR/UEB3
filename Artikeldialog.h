@@ -84,12 +84,12 @@ public:
 	 * @brief Interaktives Erstellen eines Testartikels mit Bestand
 	 * @details ruft manuell() auf
 	 */
-	void createArtikelComplete();
+	void createArtikelMitBestand();
 	/**
 	 * @brief Interaktives Erstellen eines Testartikels ohne Bestand
 	 * @details ruft manuell() auf
 	 */
-	void createArtikelTwoParam();
+	void createArtikelOhneBestand();
 };
 
 #endif /* ARTIKELDIALOG_H_ */

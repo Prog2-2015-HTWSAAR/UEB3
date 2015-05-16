@@ -270,10 +270,10 @@ void Artikeldialog::dialog(){
 					testeAlles();
 					break;
 				case 2:
-					createArtikelComplete();
+					createArtikelMitBestand();
 					break;
 				case 3:
-					createArtikelTwoParam();
+					createArtikelOhneBestand();
 					break;
 				default:
 					cout << "-> FEHLERHAFTE EINGABE <-" << endl;
@@ -288,7 +288,7 @@ void Artikeldialog::dialog(){
 * @brief createArtikelComplete 
 * @details Artikel Erstellung mit 4 parametern
 */
-void Artikeldialog::createArtikelComplete(){
+void Artikeldialog::createArtikelMitBestand(){
 	int artikelNr=0;
 	string bezeichnung="";
 	double artikelPreis=0.0;
@@ -301,11 +301,13 @@ void Artikeldialog::createArtikelComplete(){
 	cin >> bezeichnung;
 	cout << "Preis: ";
 	cin >> artikelPreis;
+	cin.clear();
+	cin.ignore(10000, '\n');
 	cout << "Bestand: ";
 	cin >> bestand;
 	cin.clear();
 	cin.ignore(10000, '\n');
-	Artikel artikel(artikelNr, bezeichnung, bestand);
+	Artikel artikel(artikelNr, bezeichnung, artikelPreis, bestand);
 	manuell(artikel);
 
 }
@@ -313,7 +315,7 @@ void Artikeldialog::createArtikelComplete(){
 * @brief createArtikelTwoParam
 * @details Artikel Erstellung mit 3 parametern wobei bestand=0
 */
-void Artikeldialog::createArtikelTwoParam(){
+void Artikeldialog::createArtikelOhneBestand(){
 	int artikelNr=0;
 	string bezeichnung="";
 	int artikelPreis=0;
@@ -321,10 +323,14 @@ void Artikeldialog::createArtikelTwoParam(){
 	cin >> artikelNr;
 	cin.clear();
 	cin.ignore(10000, '\n');
+	cout << "Artikelpreis: ";
+	cin >> artikelPreis;
+	cin.clear();
+	cin.ignore(10000, '\n');
 	cout << "Bezeichnung: ";
 	cin >> bezeichnung;
 	Artikel artikel(artikelNr, bezeichnung,artikelPreis);
-		manuell(artikel);
+	manuell(artikel);
 }
 /**
 * @brief manuell
@@ -391,6 +397,8 @@ void Artikeldialog::manuell(Artikel artikel){
 		} catch (const char* e) {
 			cout << endl << "Fehler: " << e << endl << endl;
 		}
+		cin.clear();
+		cin.ignore(10000, '\n');
 	} while (answer != 0);
 }
 
