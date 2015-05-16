@@ -1,3 +1,4 @@
+// NOPE IN BEARBEITUNG!
 /**
 * compile: g++ -c -Wall -pedantic *.cpp
 * compile: g++ -o ueb01 *.o
