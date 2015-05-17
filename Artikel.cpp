@@ -27,8 +27,8 @@ Artikel::Artikel(int artikelNr, string bezeichnung, double artikelPreis){
 	if (bezeichnung.empty()){
 		throw "Die Bezeichnung eines Artikels darf nicht leer sein!";
 	}
-	if(artikelPreis < 0.0){
-			throw "Der Preis darf nie negativ sein!";
+	if(artikelPreis <= 0){
+			throw "Der Preis darf nie null oder negativ sein!";
 		}
 	this->artikelNr = artikelNr;
 	this->bezeichnung = bezeichnung;
@@ -54,8 +54,8 @@ Artikel::Artikel(int artikelNr, string bezeichnung, double artikelPreis, int bes
 	if (bestand < 0){
 		throw "Der Bestand darf nie negativ sein!";
 	}
-	if(artikelPreis < 0.0){
-		throw "Der Preis darf nie negativ sein!";
+	if(artikelPreis <= 0){
+		throw "Der Preis darf nie null oder negativ sein!";
 	}
 	this->artikelNr = artikelNr;
 	this->bezeichnung = bezeichnung;
