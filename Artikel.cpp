@@ -126,8 +126,10 @@ void Artikel::setPreis(double neuPreis){
  * @param preisaenderung in Prozent
  */
 void Artikel::aenderePreis(double preisaenderung){
-	if(abs(preisaenderung) > 100){
+	if (abs(preisaenderung) > 100 ){
 		throw "This change is too damn High!";
+	}	if (abs(preisaenderung) == 0){
+		throw "0 or NaN Forbidden";
 	}
 	artikelPreis*=(1+(preisaenderung/100));
 	artikelPreis=round(artikelPreis*100)/100;
