@@ -299,7 +299,7 @@ void Artikeldialog::createArtikelMitBestand(){
 	cin.ignore(10000, '\n');
 	cout << "Bezeichnung: ";
 	cin >> bezeichnung;
-	cout << "Preis: ";
+	cout << "Artikelpreis: ";
 	cin >> artikelPreis;
 	cin.clear();
 	cin.ignore(10000, '\n');
@@ -323,12 +323,12 @@ void Artikeldialog::createArtikelOhneBestand(){
 	cin >> artikelNr;
 	cin.clear();
 	cin.ignore(10000, '\n');
+	cout << "Bezeichnung: ";
+	cin >> bezeichnung;
 	cout << "Artikelpreis: ";
 	cin >> artikelPreis;
 	cin.clear();
 	cin.ignore(10000, '\n');
-	cout << "Bezeichnung: ";
-	cin >> bezeichnung;
 	Artikel artikel(artikelNr, bezeichnung,artikelPreis);
 	manuell(artikel);
 }
