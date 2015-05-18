@@ -2,7 +2,7 @@
 * compile: g++ -c -Wall -pedantic *.cpp
 * compile: g++ -o ueb03 *.o
 * @file Artikel.cpp
-* @Author Andreas Schreiner & Simon Bastian
+* @author Andreas Schreiner & Simon Bastian
 *
 * @date 16.05.2015
 *
@@ -13,8 +13,8 @@
 #include "Artikel.h"
 #include <cmath>
 /**
-* @brief Konstruktor mit 2 Parameter(Artikelnummer. Bezeichnung)
-* @details Konstruktor zur Erzeugung eines Artikel Obj mit bestand=0
+* @brief Konstruktor mit 3 Parametern
+* @details Konstruktor zur Erzeugung eines Artikel Obj ohne Bestandsangabe
 * @param artikelNr muss vierstellig sein!
 * @param bezeichnung darf kein leerer String sein!
 * @param artikelPreis darf nicht negativ sein!
@@ -36,8 +36,8 @@ Artikel::Artikel(int artikelNr, string bezeichnung, double artikelPreis){
 	this->artikelPreis=artikelPreis; //TODO EINGABE?
 }
 /**
-* @brief Konstruktor mit 3 Parameter(Artikelnummer. Bezeichnung, Bestand)
-* @details Konstruktor zur Erzeugung eines Artikel Obj 
+* @brief Konstruktor mit 4 Parametern
+* @details Konstruktor zur Erzeugung eines Artikel Obj mit Bestandsangabe
 * @param artikelNr muss vierstellig sein!
 * @param bezeichnung darf kein leerer String sein!
 * @param artikelPreis darf nicht negativ sein!
@@ -67,9 +67,8 @@ Artikel::Artikel(int artikelNr, string bezeichnung, double artikelPreis, int bes
 /**
 * @brief bucheZugang
 * @details Funktion zum erhoehen des Bestands
-* @param menge muss sein!
+* @param menge muss positiv sein!
 */
-
 void Artikel::bucheZugang(int menge){
 	if(menge <= 0){
 		throw "Es duerfen nur positive Mengen gebucht werden!";
@@ -94,11 +93,11 @@ void Artikel::bucheAbgang(int menge){
 /**
 * @brief setBestand bei Inventur
 * @details Funktion zum setzen des Bestands
-* @param menge darf nicht negativ sein!
+* @param neuBestand darf nicht negativ sein!
 */
 void Artikel::setBestand(int neuBestand){
 	if (neuBestand < 0){
-		throw "Der Bestand dar nie negativ sein!";
+		throw "Der Bestand darf nie negativ sein!";
 	}
 	bestand = neuBestand;
 
@@ -116,14 +115,17 @@ void Artikel::setBezeichnung(string neuBezeichnung){
 }
 /**
 * @brief Set neuer Preis
-* @param neuBezeichnung
+* @param neuPreis darf nicht negativ sein!
 */
 void Artikel::setPreis(double neuPreis){
+	if(neuPreis < 0){
+		throw "Der Preis darf nie negativ sein!";
+	}
 	artikelPreis=round(neuPreis*100)/100.0; // auf zwei stellen runden
 }
 /**
  * @brief Preisaenderung
- * @param preisaenderung in Prozent
+ * @param preisaenderung in Prozent (max. 99%)
  */
 void Artikel::aenderePreis(double preisaenderung){
 	if (abs(preisaenderung) > 100 ){

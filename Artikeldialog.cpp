@@ -2,7 +2,7 @@
 * compile: g++ -c -Wall -pedantic *.cpp
 * compile: g++ -o ueb03 *.o
 * @file Artikeldialog.cpp
-* @Author Andreas Schreiner & Simon Bastian
+* @author Andreas Schreiner & Simon Bastian
 *
 * @date 16.05.2015
 *
@@ -248,8 +248,8 @@ void Artikeldialog::testeAlles(){
 	testeAenderePreis(artikel);
 }
 /**
-* @brief dialog
-* @details Dialog Fkt oberste ebene des Dialogs
+* @brief Benutzerdialog
+* @details Dialog zur Auswahl zwischen automatischen Tests und manuellem Testen
 */
 void Artikeldialog::dialog(){
 	int answer;
@@ -285,7 +285,7 @@ void Artikeldialog::dialog(){
 }
 
 /**
-* @brief createArtikelComplete 
+* @brief createArtikelComplete
 * @details Artikel Erstellung mit 4 parametern
 */
 void Artikeldialog::createArtikelMitBestand(){

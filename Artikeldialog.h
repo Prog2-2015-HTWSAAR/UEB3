@@ -2,7 +2,7 @@
 * compile: g++ -c -Wall -pedantic *.cpp
 * compile: g++ -o ueb03 *.o
 * @file Artikeldialog.h
-* @Author Andreas Schreiner & Simon Bastian
+* @author Andreas Schreiner & Simon Bastian
 *
 * @date 08.05.2015
 *
@@ -68,11 +68,12 @@ public:
 	 */
 	void testeAenderePreis(Artikel artikel);
 	/**
-	 * @brief Ausführung aller Tests
+	 * @brief Ausfuehrung aller Tests
 	 */
 	void testeAlles();
 	/**
-	 * @briefDialog zur Auswahl zwischen automatischen Tests und manuellem Testen
+	 * @brief Benutzerdialog
+	 * @details Dialog zur Auswahl zwischen automatischen Tests und manuellem Testen
 	 */
 	void dialog();
 	/**

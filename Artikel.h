@@ -1,6 +1,6 @@
 /**
 * @file Artikel.h
-* @Author Andreas Schreiner & Simon Bastian
+* @author Andreas Schreiner & Simon Bastian
 * @date 16.05.2015
 *
 * Eingabe Funktionen
@@ -15,48 +15,54 @@ using namespace std;
 class Artikel {
 public:
 	/**
-	* @brief Konstruktor mit drei Argumenten
-	* @param artikelNr
-	* @param bezeichnung
-	* @param artikelPreis
-	* @param bestand
+	* @brief Konstruktor mit 4 Parametern
+	* @details Konstruktor zur Erzeugung eines Artikel Obj mit Bestandsangabe
+	* @param artikelNr muss vierstellig sein!
+	* @param bezeichnung darf kein leerer String sein!
+	* @param artikelPreis darf nicht negativ sein!
+	* @param bestand darf nicht negativ sein!
 	*/
 	Artikel(int artikelNr, string bezeichnung, double artikelPreis, int bestand);
 	/**
-	* @brief Konstruktor mit zwei Argumenten
-	* @param artikelNr
-	* @param bezeichnung
-	* @param artikelPreis
+	* @brief Konstruktor mit 3 Parametern
+	* @details Konstruktor zur Erzeugung eines Artikel Obj ohne Bestandsangabe
+	* @param artikelNr muss vierstellig sein!
+	* @param bezeichnung darf kein leerer String sein!
+	* @param artikelPreis darf nicht negativ sein!
 	*/
 	Artikel(int artikelNr, string bezeichnung, double artikelPreis);
 	/**
-	* @brief Zugangsbuchung eines Artikels
-	* @param menge
+	* @brief bucheZugang
+	* @details Funktion zum erhoehen des Bestands
+	* @param menge muss positiv sein!
 	*/
 	void bucheZugang(int menge);
 	/**
-	* @brief Abgangsbuchung eines Artikels
-	* @param menge
+	* @brief bucheAbgang
+	* @details Funktion zum verringern des Bestands
+	* @param menge muss positiv sein!
 	*/
 	void bucheAbgang(int menge);
-
 	/**
-	* @brief Set Neue Bezeichnung
-	* @param neuBezeichnung
+	* @brief setBezeichnung
+	* @details Funktion zum setzen der Bezeichnung
+	* @param neuBezeichnung darf nicht leer sein!
 	*/
 	void setBezeichnung(string neuBezeichnung);
 	/**
-	* @brief Set Neuer Bestand
-	* @param neuBestand
+	* @brief setBestand bei Inventur
+	* @details Funktion zum setzen des Bestands
+	* @param neuBestand darf nicht negativ sein!
 	*/
 	void setBestand(int neuBestand);
 	/**
 	* @brief Set neuer Preis
-	* @param neuBezeichnung	*/
+	* @param neuPreis darf nicht negativ sein!
+	*/
 	void setPreis(double neuPreis);
 	/**
 	 * @brief Preisaenderung
-	 * @param preisaenderung in Prozent
+	 * @param preisaenderung in Prozent (max. 99%)
 	 */
 	void aenderePreis(double preisaenderung);
 	/**
