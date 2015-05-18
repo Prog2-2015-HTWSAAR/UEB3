@@ -187,7 +187,7 @@ void Artikeldialog::testeSetBestand(Artikel artikel){
  * @param artikel
  */
 void Artikeldialog::testeSetPreis(Artikel artikel){
-	int preis = NEUPREIS;
+	double preis = NEUPREIS;
 	cout << endl << "Starte Test zum Setzen des Preises eines Artikels..." << endl;
 
 	cout << "Der neue Preis soll " << preis << " sein!" << endl;
